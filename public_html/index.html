@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Practica2 Service</title>
@@ -21,19 +16,20 @@ and open the template in the editor.
             <h1>Practica 2 Service</h1>
             <div class="row">
                 <div class="col-lg-12">
-                    <div>
-                        <select ng-model="numPeli">
-                            <option ng-repeat="peli in peliculasControler track by $index" value="{{peli}}">
-                                {{peli[1]}}          
-                            </option>
+                    <div >
+                        <select ng-model="selectedMovie">
+                            <option>--Selecciona una pelicula--</option>
+                            <option ng-repeat="x in peliculasControler track by $index" value="{{$index}}">
+                                {{x[1]}}
+                            </option>                           
                         </select>
-                        {{peliculasControler[numPeli]}}
+                        <div>
+                            Director:{{peliculasControler[selectedMovie][2]}}<br>
+                            Nombre: {{peliculasControler[selectedMovie][1]}}<br>
+                            Año: {{peliculasControler[selectedMovie][3]}}<br>
+                        </div>
                     </div>
-                    <div>
-                        Director: {{peliculaControler[2]}}<br>
-                        Nombre: {{peliculaControler[1]}}<br>
-                        Año: {{peliculaControler[3]}}<br>
-                    </div>
+
                     <table class="table table-condensed">
                         <thead>
                             <tr>
@@ -52,10 +48,12 @@ and open the template in the editor.
                             </tr>
                         </thead>
                         <tbody>
-                        <tr ng-reapat="actor in peliculaControler[0] track by $index">
-                            <th>{{actor[0]}}</th>
-                            <th>{{actor[1]}}</th>
-                        </tr>
+                            <tr ng-repeat="y in peliculasControler[selectedMovie][0] track by $index" value="{{index}}">
+                                <th>{{y[0]}}</th>
+                                <th>{{y[1]}}</th>
+                                <th>{{y[2]}}</th>
+                                <th>{{y[3]}}</th>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
