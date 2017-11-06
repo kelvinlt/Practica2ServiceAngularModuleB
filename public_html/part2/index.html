@@ -39,12 +39,14 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Email</th>
+                        <th>Delete?</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="y in allContactos track by $index" value="{{index}}">
                         <th>{{y.nombre}}</th>
                         <th>{{y.email}}</th>
+                        <th><button type="button" class="btn btn-primary" ng-click="deleteContacto(y.nombre);">Delete {{y.nombre}}</button></th>
                     </tr>
                 </tbody>
             </table>

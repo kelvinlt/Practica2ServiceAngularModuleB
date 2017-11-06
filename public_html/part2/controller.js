@@ -13,4 +13,16 @@ angular.module('myApp', [])
                     var nuevo = new Persona(nombre,email)
                         ContactosService.addContacto(nuevo);  
                 };
+                
+                $scope.deleteContacto = function(nombre){
+                    
+                };
+            }]).controller('ListaController', ['$scope', 'ListaService',
+            function ($scope, ListaService) {
+                $scope.newProducto = "";
+                
+                $scope.createProducto = function (nombre){
+                    var nuevo = new Producto(nombre);
+                    ListaService.addProducto(nuevo);
+                }
             }]);
